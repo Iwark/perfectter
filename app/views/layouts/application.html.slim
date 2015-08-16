@@ -7,4 +7,14 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    = yield
+    nav.navbar.navbar-default.navbar-fixed-top.header
+      .container
+        .navbar-header
+          = link_to 'Perfectter', :root, class: "navbar-brand"
+        .nav.navbar-nav
+          = nav_list(controller.controller_name, "accounts") do
+            = link_to 'Accounts', accounts_path
+          = nav_list(controller.controller_name, "twitter_apis") do
+            = link_to 'TwitterAPI', twitter_apis_path
+    .main-container
+      = yield

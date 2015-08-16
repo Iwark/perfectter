@@ -1,0 +1,48 @@
+p#notice = notice
+
+p
+  strong Tid:
+  = @account.tid
+p
+  strong Name:
+  = @account.name
+p
+  strong Screen name:
+  = @account.screen_name
+p
+  strong Description:
+  = @account.description
+p
+  strong Description url:
+  = @account.description_url
+p
+  strong Protected:
+  = @account.is_protected
+p
+  strong Followers count:
+  = @account.followers_count
+p
+  strong Friends count:
+  = @account.friends_count
+p
+  strong Favourites count:
+  = @account.favourites_count
+p
+  strong Statuses count:
+  = @account.statuses_count
+p
+  strong Status:
+  = @account.status
+p
+  strong Profile background image url:
+  = @account.profile_background_image_url
+p
+  strong Profile image url:
+  = @account.profile_image_url
+p
+  strong Profile use background image:
+  = @account.profile_use_background_image
+
+= link_to 'Edit', edit_account_path(@account)
+'|
+= link_to 'Back', accounts_path

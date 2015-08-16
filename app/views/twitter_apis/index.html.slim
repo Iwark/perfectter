@@ -1,0 +1,27 @@
+h1 Listing twitter_apis
+
+table
+  thead
+    tr
+      th Api key
+      th Api secret
+      th Access token
+      th Access token secret
+      th
+      th
+      th
+
+  tbody
+    - @twitter_apis.each do |twitter_api|
+      tr
+        td = twitter_api.api_key
+        td = twitter_api.api_secret
+        td = twitter_api.access_token
+        td = twitter_api.access_token_secret
+        td = link_to 'Show', twitter_api
+        td = link_to 'Edit', edit_twitter_api_path(twitter_api)
+        td = link_to 'Destroy', twitter_api, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Twitter api', new_twitter_api_path

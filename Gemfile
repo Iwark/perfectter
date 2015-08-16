@@ -29,6 +29,12 @@ gem 'newrelic_rpm'
 gem 'kaminari'
 gem 'nokogiri'
 
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'chartkick'
+# BULK INSERT
+gem "activerecord-import"
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

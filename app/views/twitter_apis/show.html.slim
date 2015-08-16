@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Api key:
+  = @twitter_api.api_key
+p
+  strong Api secret:
+  = @twitter_api.api_secret
+p
+  strong Access token:
+  = @twitter_api.access_token
+p
+  strong Access token secret:
+  = @twitter_api.access_token_secret
+
+= link_to 'Edit', edit_twitter_api_path(@twitter_api)
+'|
+= link_to 'Back', twitter_apis_path

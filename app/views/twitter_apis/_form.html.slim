@@ -1,0 +1,11 @@
+= simple_form_for(@twitter_api) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :api_key
+    = f.input :api_secret
+    = f.input :access_token
+    = f.input :access_token_secret
+
+  .form-actions
+    = f.button :submit

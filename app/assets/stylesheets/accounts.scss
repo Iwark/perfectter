@@ -1,0 +1,55 @@
+.account_list{
+  &:after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+  }
+  .account{
+    float: left;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #bdf;
+    border-radius: 8px;
+    overflow: hidden;
+    .profile-bg{
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      img{
+        height:100%;
+      }
+    }
+    .profile{
+      margin-top: -20px;
+      margin-left: 10px;
+      .name{
+        margin-top: 10px;
+        font-weight: 600;
+      }
+      .screen-name{
+        color: #666;
+        font-size: 11px;
+      }
+      .description{
+        margin-top: 10px;
+        font-size: 13px;
+      }
+      .description-url{
+        margin-top: 5px;
+        font-size: 12px;
+      }
+      .social-status{
+        margin-top: 10px;
+        font-size: 12px;
+        .friends{
+        }
+        .followers{
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

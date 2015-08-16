@@ -1,6 +1,7 @@
 / account
 
 .account
+  .delete-btn = link_to 'X', account_path(account), method: :delete
   .profile-bg
     -if account.profile_use_background_image
       = image_tag account.profile_background_image_url

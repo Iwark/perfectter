@@ -23,6 +23,9 @@
 
 class Account < ActiveRecord::Base
 
+  has_many :friends, dependent: :destroy
+  has_many :followers, dependent: :destroy
+
   before_create :fetch_account_data
   after_create :fetch_friends_data
   after_create :fetch_followers_data

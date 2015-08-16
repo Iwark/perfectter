@@ -1,6 +1,6 @@
 h1 Listing twitter_apis
 
-table
+table.table
   thead
     tr
       th Api key
@@ -14,10 +14,10 @@ table
   tbody
     - @twitter_apis.each do |twitter_api|
       tr
-        td = twitter_api.api_key
-        td = twitter_api.api_secret
-        td = twitter_api.access_token
-        td = twitter_api.access_token_secret
+        td = twitter_api.api_key.truncate(20)
+        td = twitter_api.api_secret.truncate(20)
+        td = twitter_api.access_token.truncate(20)
+        td = twitter_api.access_token_secret.truncate(20)
         td = link_to 'Show', twitter_api
         td = link_to 'Edit', edit_twitter_api_path(twitter_api)
         td = link_to 'Destroy', twitter_api, data: {:confirm => 'Are you sure?'}, :method => :delete

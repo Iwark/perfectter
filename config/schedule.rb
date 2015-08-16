@@ -24,6 +24,6 @@ env :PATH, ENV['PATH']
 set :output, {standard: 'log/cron_standard.log', error: 'log/cron_error.log'}
 set :environment, :production
 
-every 15.minutes do
+every 5.minutes do
   rake "account:create_candidates"
 end

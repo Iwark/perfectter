@@ -81,8 +81,8 @@ class Account < ActiveRecord::Base
     str ? str.each_char.select{|c| c.bytes.count < 4 }.join('') : ""
   end
 
-  def self.create_candidates
-    tids = Follower.pickup_candidates(1)
+  def self.create_candidates(n=1)
+    tids = Follower.pickup_candidates(n)
     tids.each do |tid|
       Account.create(tid: tid)
     end

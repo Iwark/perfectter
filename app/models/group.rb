@@ -22,7 +22,7 @@ class Group < ActiveRecord::Base
       map{|a| a[0]} - Account.pluck(:tid)).
       take(n)
     tids.each do |tid|
-      Account.create(group_id: group_id, tid: tid)
+      self.accounts.create(tid: tid)
     end
   end
 

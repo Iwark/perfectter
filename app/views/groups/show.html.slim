@@ -5,6 +5,8 @@ h1 = @group.name
 .account_list
   = render @accounts
 
+= paginate @accounts
+
 br
 
 - if @accounts.length > 0

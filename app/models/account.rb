@@ -29,8 +29,8 @@
 class Account < ActiveRecord::Base
 
   belongs_to :group
-  has_many :friends, dependent: :destroy
-  has_many :followers, dependent: :destroy
+  has_many :friends, dependent: :delete_all
+  has_many :followers, dependent: :delete_all
 
   validates :group_id, presence: true
 

@@ -19,6 +19,11 @@
 #  profile_use_background_image :boolean
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
+#  group_id                     :integer
+#
+# Indexes
+#
+#  index_accounts_on_group_id  (group_id)
 #
 
 require 'rails_helper'

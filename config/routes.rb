@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
-  resources :accounts do
-    collection do
-      post :add
+  resources :groups do
+    resources :accounts, only: [] do
+      collection do
+        post :add
+      end
     end
   end
 
-  resources :twitter_apis
+  resources :twitter_apis, :accounts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'accounts#index'
+  root 'groups#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

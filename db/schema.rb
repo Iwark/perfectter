@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816094828) do
+ActiveRecord::Schema.define(version: 20150817135016) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "tid",                          limit: 255
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20150816094828) do
     t.boolean  "profile_use_background_image", limit: 1
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.integer  "group_id",                     limit: 4
   end
+
+  add_index "accounts", ["group_id"], name: "index_accounts_on_group_id", using: :btree
 
   create_table "followers", force: :cascade do |t|
     t.integer  "account_id", limit: 4
@@ -52,6 +55,13 @@ ActiveRecord::Schema.define(version: 20150816094828) do
   add_index "friends", ["account_id"], name: "index_friends_on_account_id", using: :btree
   add_index "friends", ["tid"], name: "index_friends_on_tid", using: :btree
 
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "add_count",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "twitter_apis", force: :cascade do |t|
     t.string   "api_key",             limit: 255
     t.string   "api_secret",          limit: 255
@@ -61,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150816094828) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_foreign_key "accounts", "groups"
   add_foreign_key "followers", "accounts"
   add_foreign_key "friends", "accounts"
 end

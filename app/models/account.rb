@@ -19,12 +19,20 @@
 #  profile_use_background_image :boolean
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
+#  group_id                     :integer
+#
+# Indexes
+#
+#  index_accounts_on_group_id  (group_id)
 #
 
 class Account < ActiveRecord::Base
 
+  belongs_to :group
   has_many :friends, dependent: :destroy
   has_many :followers, dependent: :destroy
+
+  validates :group_id, presence: true
 
   before_create :fetch_account_data
   after_create :fetch_friends_data
@@ -82,13 +90,6 @@ class Account < ActiveRecord::Base
 
   def delete_4byte_chars(str)
     str ? str.each_char.select{|c| c.bytes.count < 4 }.join('') : ""
-  end
-
-  def self.create_candidates(n=1)
-    tids = Follower.pickup_candidates(n)
-    tids.each do |tid|
-      Account.create(tid: tid)
-    end
   end
 
 end

@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-  permits :screen_name
+  permits :screen_name, :group_id
 
   # GET /accounts
   def index
@@ -20,8 +20,9 @@ class AccountsController < ApplicationController
   def edit
   end
 
-  def add
-    Account.create_candidates
+  # POST /groups/:group_id/accounts/add
+  def add(group_id)
+    Group.find(group_id).create_candidates()
     redirect_to :back
   end
 

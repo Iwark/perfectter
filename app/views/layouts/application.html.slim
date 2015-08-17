@@ -12,8 +12,10 @@ html
         .navbar-header
           = link_to 'Perfectter', :root, class: "navbar-brand"
         .nav.navbar-nav
+          = nav_list(controller.controller_name, "groups") do
+            = link_to 'Groups', groups_path
           = nav_list(controller.controller_name, "accounts") do
-            = link_to 'Accounts', accounts_path
+            = link_to 'New Account', new_account_path
           = nav_list(controller.controller_name, "twitter_apis") do
             = link_to 'TwitterAPI', twitter_apis_path
     .main-container

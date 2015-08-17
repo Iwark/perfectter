@@ -1,0 +1,25 @@
+h1 Listing groups
+
+table.table
+  thead
+    tr
+      th Name
+      th Accounts
+      th Add Count
+      th
+      th
+      th
+
+  tbody
+    - @groups.each do |group|
+      tr
+        td = group.name
+        td = group.accounts.count
+        td = group.add_count
+        td = link_to 'Show', group, class: 'btn btn-default'
+        td = link_to 'Edit', edit_group_path(group), class: 'btn btn-default'
+        td = link_to 'Destroy', group, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger'
+
+br
+
+= link_to 'New Group', new_group_path, class: 'btn btn-primary'

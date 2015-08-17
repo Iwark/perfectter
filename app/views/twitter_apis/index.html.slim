@@ -18,10 +18,10 @@ table.table
         td = twitter_api.api_secret.truncate(20)
         td = twitter_api.access_token.truncate(20)
         td = twitter_api.access_token_secret.truncate(20)
-        td = link_to 'Show', twitter_api
-        td = link_to 'Edit', edit_twitter_api_path(twitter_api)
-        td = link_to 'Destroy', twitter_api, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Show', twitter_api, class: 'btn btn-default'
+        td = link_to 'Edit', edit_twitter_api_path(twitter_api), class: 'btn btn-default'
+        td = link_to 'Destroy', twitter_api, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger'
 
 br
 
-= link_to 'New Twitter api', new_twitter_api_path
+= link_to 'New Twitter api', new_twitter_api_path, class: 'btn btn-primary'

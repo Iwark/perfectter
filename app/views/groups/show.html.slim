@@ -1,0 +1,17 @@
+p#notice = notice
+
+h1 = @group.name
+
+.account_list
+  = render @accounts
+
+br
+
+- if @accounts.length > 0
+  = link_to '自動で一人増やす', add_group_accounts_path(@group), method: :post, class: 'btn btn-danger', style: 'margin-left: 20px;'
+- else
+  = link_to 'アカウントの追加', new_account_path, class: 'btn btn-default', style: 'margin-left: 20px;'
+br
+br
+br
+br

@@ -16,12 +16,4 @@
 
 class Friend < ActiveRecord::Base
   belongs_to :account
-
-  def self.pickup_candidates(n=10)
-    (group(:tid).
-    count.
-    sort{|(k1,v1),(k2,v2)| v2 <=> v1}.
-    map{|a| a[0]} - Account.pluck(:tid)).
-    take(n)
-  end
 end

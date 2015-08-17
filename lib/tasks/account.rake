@@ -4,7 +4,9 @@ namespace :account do
 
   task create_candidates: :environment do
     result = Benchmark.realtime do
-      Account.create_candidates(3)
+      Group.all.each do |group|
+        group.create_candidates(group.add_count)
+      end
     end
     puts "create_candidates: #{result}s"
   end

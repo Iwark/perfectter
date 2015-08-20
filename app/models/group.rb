@@ -21,9 +21,11 @@ class Group < ActiveRecord::Base
       sort{|(k1,v1),(k2,v2)| v2 <=> v1}.
       map{|a| a[0]} - Account.pluck(:tid)).
       take(n)
+    accounts = []
     tids.each do |tid|
-      self.accounts.create(tid: tid)
+      accounts << self.accounts.new(tid: tid)
     end
+    Account.import accounts
   end
 
 end

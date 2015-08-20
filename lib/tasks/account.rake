@@ -14,6 +14,8 @@ namespace :account do
       end
       puts "create_candidates: #{result}s"
       Rails.cache.write("create_candidates_status", 'done')
+    else
+      puts "create_candidates: executing"
     end
   end
 

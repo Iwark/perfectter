@@ -50,7 +50,7 @@ class AccountsController < ApplicationController
   def destroy
     @account.destroy
 
-    redirect_to accounts_url, notice: 'Account was successfully destroyed.'
+    redirect_to :back, notice: 'Account was successfully destroyed.'
   end
 
   private
